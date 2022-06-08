@@ -1,57 +1,99 @@
 <?php
 session_start();
+isset($_GET['p']) ? $pagina = $_GET['p'].".php" : $pagina = "inicio.php";
 ?>
-
 <!DOCTYPE html>
-<html>
-    
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema de Login - PHP + MySQL - Canal TI</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sá e Ferreira Associated Lawyers</title>
+  <meta name="description" content="Serviços de advogados em Santos">
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <style>
+  .fra{
+    width: 500px;
+  }
+  @media (max-width: 400px){
+  .fra{
+    width: 90%;
+  }}
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-199563916-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-199563916-1');
+  gtag('config', 'AW-351170203');
+  gtag('config', 'AW-351170203/K09OCKUFEJvduacB', {
+    'phone_conversion_number': '(13) 3223-7001'
+  });
+</script>
+
 </head>
-
 <body>
-    <section class="hero is-success is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
-                    <h3 class="title has-text-grey">Sistema de Login</h3>
-                    <h3 class="title has-text-grey"><a href="https://youtube.com/canaltioficial" target="_blank">Canal TI</a></h3>
-                    <?php
-                    if(isset($_SESSION['nao_autenticado'])):
-                    ?>
-                    <div class="notification is-danger">
-                      <p>ERRO: Usuário ou senha inválidos.</p>
-                    </div>
-                    <?php
-                    endif;
-                    unset($_SESSION['nao_autenticado']);
-                    ?>
-                    <div class="box">
-                        <form action="login.php" method="POST">
-                            <div class="field">
-                                <div class="control">
-                                    <input name="usuario" name="text" class="input is-large" placeholder="Seu usuário" autofocus="">
-                                </div>
-                            </div>
+  <header id="header" class="fixed-top ">
+    <div class="container-fluid d-flex align-items-center justify-content-between">     
+      <a href="inicio" class="logo"><img src="../assets/img/en-logo-w.png" alt="Logotipo Sá e Ferreria" class="img-responsive"></a>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="inicio">Home</a></li>
+          <li><a href="inicio#about">About Us</a></li>
+          <li><a href="inicio#services">Areas of expertise</a></li>   
+          <li><a href="inicio#team">Team</a></li>        
+          <li><a href="inicio#estrutura">Structure</a></li>
+          <li><a href="inicio#about-boxes">Articles</a></li>
+          <li><a href="inicio#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<?php
+file_exists($pagina) ? include_once $pagina : include_once 'inicio.php';
+  $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+  $ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+  $android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+  $palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+  $berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+  $ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+  $symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
+  if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == true) {
+      $whatsapp = "api";
+      } else {
+      $whatsapp = "web" ;
+      echo "<a style='right: 5px;bottom: 80px; position: fixed; z-index:9999;' href='https://".$whatsapp.".whatsapp.com/send?phone=5513974060774' target='_blank'><img src='../assets/img/whats-logo.png' width='210'></a>";
+}
+?>
+<a style='left: 5px;bottom: 130px; position: fixed; z-index:9999;' href="/br"> <img src="../assets/img/brasil.png" width="50"></a>
+<a style='left: 5px;bottom: 80px; position: fixed; z-index:9999;' href="/es"> <img src="../assets/img/spanish.png" width="50"></a>
 
-                            <div class="field">
-                                <div class="control">
-                                    <input name="senha" class="input is-large" type="password" placeholder="Sua senha">
-                                </div>
-                            </div>
-                            <button type="submit" class="button is-block is-link is-large is-fullwidth">Entrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ <?php include_once 'footer.php'; ?>
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+  <div id="preloader"></div>  
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
-
 </html>
