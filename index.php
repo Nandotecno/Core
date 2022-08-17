@@ -3,11 +3,11 @@ session_start();
 isset($_GET['p']) ? $pagina = $_GET['p'].".php" : $pagina = "inicio.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sá e Ferreira Associated Lawyers</title>
+  <title>Sá e Ferreira Abogados Asociados</title>
   <meta name="description" content="Serviços de advogados em Santos">
   <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -48,16 +48,16 @@ isset($_GET['p']) ? $pagina = $_GET['p'].".php" : $pagina = "inicio.php";
 <body>
   <header id="header" class="fixed-top ">
     <div class="container-fluid d-flex align-items-center justify-content-between">     
-      <a href="inicio" class="logo"><img src="../assets/img/en-logo-w.png" alt="Logotipo Sá e Ferreria" class="img-responsive"></a>
+      <a href="inicio" class="logo"><img src="../assets/img/es-logo-w.png" alt="Logotipo Sá e Ferreria" class="img-responsive"></a>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="inicio">Home</a></li>
-          <li><a href="inicio#about">About Us</a></li>
-          <li><a href="inicio#services">Areas of expertise</a></li>   
-          <li><a href="inicio#team">Team</a></li>        
-          <li><a href="inicio#estrutura">Structure</a></li>
-          <li><a href="inicio#about-boxes">Articles</a></li>
-          <li><a href="inicio#contact">Contact</a></li>
+          <li class="active"><a href="inicio">Inicio</a></li>
+          <li><a href="inicio#about">Quienes somos</a></li>
+          <li><a href="inicio#services">Áreas de actuación</a></li>   
+          <li><a href="inicio#team">Equipo</a></li>        
+          <li><a href="inicio#estrutura">Estructura</a></li>
+          <li><a href="inicio#about-boxes">Artículos</a></li>
+          <li><a href="inicio#contact">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -79,7 +79,7 @@ file_exists($pagina) ? include_once $pagina : include_once 'inicio.php';
 }
 ?>
 <a style='left: 5px;bottom: 130px; position: fixed; z-index:9999;' href="/br"> <img src="../assets/img/brasil.png" width="50"></a>
-<a style='left: 5px;bottom: 80px; position: fixed; z-index:9999;' href="/es"> <img src="../assets/img/spanish.png" width="50"></a>
+<a style='left: 5px;bottom: 80px; position: fixed; z-index:9999;' href="/en"> <img src="../assets/img/english.png" width="50"></a>
 
  <?php include_once 'footer.php'; ?>
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
